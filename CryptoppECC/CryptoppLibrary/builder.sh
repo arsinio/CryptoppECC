@@ -36,7 +36,7 @@ do
     export CXXFLAGS="-x c++ -arch ${ARCH} -isysroot ${SDK_ROOT} -I${BUILD_PATH} -miphoneos-version-min=${MIN_SDK_VERSION} -mios-simulator-version-min=${MIN_SDK_VERSION}"
 
     mkdir -pv ${BUILD_PATH}
-    make -f Makefile
+    make -j 12 -f Makefile
     mv *.o ${BUILD_PATH}
     mv *.d ${BUILD_PATH}
     mv libcryptopp.a ${BUILD_PATH}
@@ -88,7 +88,7 @@ export BUILD_PATH="MACOSX_BUILD_${ARCH}"
 export CXXFLAGS="-x c++ -arch ${ARCH} -isysroot ${SDK_ROOT} -I${BUILD_PATH} -mmacosx-version-min=${MIN_SDK_VERSION}"
 
 mkdir -pv ${BUILD_PATH}
-make -f Makefile
+make -j 12 -f Makefile
 mv *.o ${BUILD_PATH}
 mv *.d ${BUILD_PATH}
 mv libcryptopp.a ${BUILD_PATH}
